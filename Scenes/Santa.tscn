@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://dhkra2h2qrhi"]
+
+[ext_resource type="Script" path="res://Scenes/santa.gd" id="1_wr7to"]
+[ext_resource type="Texture2D" uid="uid://8ocu838gr4dk" path="res://Assets/Santa/idle_sheet.png" id="2_mimeo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eqyfu"]
+atlas = ExtResource("2_mimeo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qgm2"]
+atlas = ExtResource("2_mimeo")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnnpv"]
+atlas = ExtResource("2_mimeo")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcepe"]
+atlas = ExtResource("2_mimeo")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6i8kr"]
+atlas = ExtResource("2_mimeo")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8anfd"]
+atlas = ExtResource("2_mimeo")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_285xf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eqyfu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qgm2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnnpv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcepe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6i8kr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8anfd")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bm1rs"]
+
+[node name="Santa" type="Node2D"]
+
+[node name="Santa" type="CharacterBody2D" parent="."]
+position = Vector2(295, 592)
+script = ExtResource("1_wr7to")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Santa"]
+sprite_frames = SubResource("SpriteFrames_285xf")
+animation = &"Idle"
+
+[node name="Camera2D" type="Camera2D" parent="Santa"]
+position = Vector2(91, 11)
+zoom = Vector2(4, 4)
+limit_top = 50
+limit_bottom = 2000
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Santa"]
+position = Vector2(-1, 2)
+shape = SubResource("CapsuleShape2D_bm1rs")
