@@ -67,7 +67,8 @@ animation = &"Idle"
 
 [node name="Camera2D" type="Camera2D" parent="Santa"]
 position = Vector2(91, 11)
-zoom = Vector2(4, 4)
+offset = Vector2(0, -50)
+zoom = Vector2(6, 6)
 limit_top = 50
 limit_bottom = 2000
 position_smoothing_enabled = true
