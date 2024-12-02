@@ -32,8 +32,6 @@ func _physics_process(delta: float) -> void:
 
 	  # Then add it as a child of the current node
 		get_tree().current_scene.add_child(instance)
-		print(get_tree().root)
-		print(instance.global_position)
 		
 		$SnowballAudio.play()
  		

@@ -17,3 +17,7 @@ func _process(delta: float) -> void:
 	position.x = position.x + SPEED * delta * is_Going_Left
 	_animated_sprite.play("Rotating")
 	
+
+
+func _on_timer_timeout() -> void:
+	queue_free()

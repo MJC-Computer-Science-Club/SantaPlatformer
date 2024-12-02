@@ -54,3 +54,9 @@ frame_progress = 0.0346977
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
 shape = SubResource("CircleShape2D_qwq3r")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.25
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

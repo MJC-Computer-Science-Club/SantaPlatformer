@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dhkra2h2qrhi"]
+[gd_scene load_steps=25 format=3 uid="uid://dhkra2h2qrhi"]
 
 [ext_resource type="Script" path="res://Scripts/santa.gd" id="1_wr7to"]
 [ext_resource type="Texture2D" uid="uid://8ocu838gr4dk" path="res://Assets/Santa/idle_sheet.png" id="2_mimeo"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cvkqkcpt347e6" path="res://Assets/Santa/throw_sheet.png" id="4_mqkie"]
 [ext_resource type="AudioStream" uid="uid://dnqrovwvqqltx" path="res://Assets/Sound Effects/laserShoot.wav" id="5_48ffl"]
 [ext_resource type="AudioStream" uid="uid://ctm2jbsdwm250" path="res://Assets/Sound Effects/jump.wav" id="6_v5ja2"]
+[ext_resource type="AudioStream" uid="uid://bbltcpyl6o3aa" path="res://Assets/Sound Effects/hitHurt.wav" id="7_nnn5k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eqyfu"]
 atlas = ExtResource("2_mimeo")
@@ -163,3 +164,6 @@ stream = ExtResource("5_48ffl")
 
 [node name="JumpAudio" type="AudioStreamPlayer" parent="Santa"]
 stream = ExtResource("6_v5ja2")
+
+[node name="HurtAudio" type="AudioStreamPlayer" parent="Santa"]
+stream = ExtResource("7_nnn5k")
