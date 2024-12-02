@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var _animated_sprite = $AnimatedSprite2D
 @onready var _snowball_spawner = $"Snowball Spawner"
 @onready var snowball_Timer = $"Timer"
+@onready var animation_Player = $"AnimationPlayer"
 var snowball = preload("res://Scenes/Snowball.tscn")
 
 
@@ -11,6 +12,7 @@ const JUMP_VELOCITY = -450.0
 
 var is_throwing_snowball = false
 var can_Throw_Snowball = true
+var santa_Heath = 3
 
 
 func _physics_process(delta: float) -> void:
@@ -61,6 +63,13 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		if is_throwing_snowball == false:
 			_animated_sprite.play("Idle")
+
+	if (GlobalSingleton.santa_Health != santa_Heath):
+		animation_Player.play("Damage")
+	
+	santa_Heath = GlobalSingleton.santa_Health
+	if santa_Heath <= 0:
+		queue_free()
 
 	move_and_slide()
 

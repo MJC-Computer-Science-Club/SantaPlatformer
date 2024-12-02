@@ -44,15 +44,15 @@ _data = {
 "bouncing": SubResource("Animation_bq4vy")
 }
 
-[node name="Present" type="Node2D"]
+[node name="Present" type="Node2D" groups=["Present"]]
 script = ExtResource("1_aah7x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_iyo6d")
 
-[node name="Area2D" type="Area2D" parent="Sprite2D" groups=["Player"]]
+[node name="Area2D" type="Area2D" parent="Sprite2D" groups=["Player", "Present"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D" groups=["Player"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D" groups=["Player", "Present"]]
 shape = SubResource("RectangleShape2D_c81ix")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

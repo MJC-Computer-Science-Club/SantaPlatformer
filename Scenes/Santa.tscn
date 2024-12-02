@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dhkra2h2qrhi"]
+[gd_scene load_steps=28 format=3 uid="uid://dhkra2h2qrhi"]
 
 [ext_resource type="Script" path="res://Scripts/santa.gd" id="1_wr7to"]
 [ext_resource type="Texture2D" uid="uid://8ocu838gr4dk" path="res://Assets/Santa/idle_sheet.png" id="2_mimeo"]
@@ -133,9 +133,34 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bm1rs"]
 
+[sub_resource type="Animation" id="Animation_m0qet"]
+resource_name = "Damage"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1e-05, 1e-05, 1e-05),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.929368, 0.242476, 0.274188, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mrmbx"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ie8jp"]
+_data = {
+"Damage": SubResource("Animation_m0qet"),
+"RESET": SubResource("Animation_mrmbx")
+}
+
 [node name="Santa" type="Node2D"]
 
-[node name="Santa" type="CharacterBody2D" parent="." groups=["Player"]]
+[node name="Santa" type="CharacterBody2D" parent="." groups=["Player", "Player_Collision"]]
 script = ExtResource("1_wr7to")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Santa"]
@@ -170,5 +195,10 @@ stream = ExtResource("7_nnn5k")
 
 [node name="Timer" type="Timer" parent="Santa"]
 wait_time = 0.25
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Santa"]
+libraries = {
+"": SubResource("AnimationLibrary_ie8jp")
+}
 
 [connection signal="timeout" from="Santa/Timer" to="Santa" method="_on_timer_timeout"]

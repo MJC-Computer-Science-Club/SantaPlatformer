@@ -21,3 +21,8 @@ func _process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	queue_free()
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if !area.is_in_group("Turn_Back_Node") and !area.is_in_group("Present"):
+		queue_free()
