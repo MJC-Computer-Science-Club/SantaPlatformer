@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://dhkra2h2qrhi"]
+[gd_scene load_steps=25 format=3 uid="uid://dhkra2h2qrhi"]
 
 [ext_resource type="Script" path="res://Scripts/santa.gd" id="1_wr7to"]
 [ext_resource type="Texture2D" uid="uid://8ocu838gr4dk" path="res://Assets/Santa/idle_sheet.png" id="2_mimeo"]
 [ext_resource type="Texture2D" uid="uid://c1i6juj1wawdq" path="res://Assets/Santa/run_sheet.png" id="3_itffc"]
+[ext_resource type="Texture2D" uid="uid://cvkqkcpt347e6" path="res://Assets/Santa/throw_sheet.png" id="4_mqkie"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eqyfu"]
 atlas = ExtResource("2_mimeo")
@@ -52,6 +53,30 @@ region = Rect2(128, 0, 32, 32)
 atlas = ExtResource("3_itffc")
 region = Rect2(160, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jno6y"]
+atlas = ExtResource("4_mqkie")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkb2l"]
+atlas = ExtResource("4_mqkie")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rd7vj"]
+atlas = ExtResource("4_mqkie")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpbv4"]
+atlas = ExtResource("4_mqkie")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_anqhm"]
+atlas = ExtResource("4_mqkie")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vs63y"]
+atlas = ExtResource("4_mqkie")
+region = Rect2(160, 0, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_285xf"]
 animations = [{
 "frames": [{
@@ -99,6 +124,29 @@ animations = [{
 "loop": true,
 "name": &"Run",
 "speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jno6y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rkb2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rd7vj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpbv4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_anqhm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vs63y")
+}],
+"loop": false,
+"name": &"Throw",
+"speed": 10.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bm1rs"]
@@ -110,9 +158,9 @@ script = ExtResource("1_wr7to")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Santa"]
 sprite_frames = SubResource("SpriteFrames_285xf")
-animation = &"Run"
+animation = &"Throw"
 frame = 1
-frame_progress = 0.86516
+frame_progress = 0.14524
 
 [node name="Camera2D" type="Camera2D" parent="Santa"]
 position = Vector2(91, 11)
