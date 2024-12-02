@@ -19,11 +19,11 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if (Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("Jump")) and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		$JumpAudio.play()
 		
-	if Input.is_action_just_pressed("Interact") && can_Throw_Snowball:
+	if (Input.is_action_just_pressed("Interact") || Input.is_action_just_pressed("Throw")) && can_Throw_Snowball:
 		can_Throw_Snowball = false
 		snowball_Timer.start()
 		_animated_sprite.stop()
