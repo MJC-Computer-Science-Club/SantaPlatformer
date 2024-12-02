@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dk68ayt17cq5l"]
+[gd_scene load_steps=9 format=3 uid="uid://dk68ayt17cq5l"]
 
 [ext_resource type="Script" path="res://Scripts/Present.gd" id="1_aah7x"]
 [ext_resource type="Texture2D" uid="uid://c7mtu5n48ekf3" path="res://Assets/RedPresentIconOutline.png" id="1_iyo6d"]
 [ext_resource type="Script" path="res://Scripts/Present_Animation.gd" id="3_wddfw"]
+[ext_resource type="AudioStream" uid="uid://b8xbik0ub1g6b" path="res://Assets/Sound Effects/pickupCoin.wav" id="4_l8bd7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c81ix"]
 
@@ -61,5 +62,9 @@ libraries = {
 }
 script = ExtResource("3_wddfw")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_l8bd7")
+
 [connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="AnimationPlayer" method="_on_animation_finished"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

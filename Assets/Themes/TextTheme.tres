@@ -1,0 +1,9 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://fnvu8u46aamo"]
+
+[ext_resource type="FontFile" uid="uid://n2pgih4boint" path="res://Assets/Fonts/04B_30__.TTF" id="1_co0kc"]
+
+[resource]
+Label/colors/font_color = Color(0, 0, 0, 1)
+Label/colors/font_outline_color = Color(1, 1, 1, 1)
+Label/font_sizes/font_size = 48
+Label/fonts/font = ExtResource("1_co0kc")
