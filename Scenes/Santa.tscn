@@ -1,6 +1,6 @@
 [gd_scene load_steps=18 format=3 uid="uid://dhkra2h2qrhi"]
 
-[ext_resource type="Script" path="res://Scenes/santa.gd" id="1_wr7to"]
+[ext_resource type="Script" path="res://Scripts/santa.gd" id="1_wr7to"]
 [ext_resource type="Texture2D" uid="uid://8ocu838gr4dk" path="res://Assets/Santa/idle_sheet.png" id="2_mimeo"]
 [ext_resource type="Texture2D" uid="uid://c1i6juj1wawdq" path="res://Assets/Santa/run_sheet.png" id="3_itffc"]
 
