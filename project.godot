@@ -29,6 +29,9 @@ window/stretch/mode="viewport"
 
 Player=""
 Turn_Back_Node=""
+Damage=""
+Present=""
+Player_Collision=""
 
 [input]
 

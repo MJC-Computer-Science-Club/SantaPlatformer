@@ -1,0 +1,8 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dy08xeomrysft"]
+
+[ext_resource type="FontFile" uid="uid://cd2u8go51h0s7" path="res://Assets/Fonts/pixel-love.ttf" id="1_ytdph"]
+
+[resource]
+Label/colors/font_color = Color(1, 0.195065, 0.273544, 1)
+Label/font_sizes/font_size = 72
+Label/fonts/font = ExtResource("1_ytdph")
