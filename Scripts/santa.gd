@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var _animated_sprite = $AnimatedSprite2D
 @onready var _snowball_spawner = $"Snowball Spawner"
+@onready var snowball_Timer = $"Timer"
 var snowball = preload("res://Scenes/Snowball.tscn")
 
 
@@ -9,6 +10,7 @@ const SPEED = 250.0
 const JUMP_VELOCITY = -400.0
 
 var is_throwing_snowball = false
+var can_Throw_Snowball = true
 
 
 func _physics_process(delta: float) -> void:
@@ -21,7 +23,9 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		$JumpAudio.play()
 		
-	if Input.is_action_just_pressed("Interact"):
+	if Input.is_action_just_pressed("Interact") && can_Throw_Snowball:
+		can_Throw_Snowball = false
+		snowball_Timer.start()
 		_animated_sprite.stop()
 		_animated_sprite.play("Throw")
 		is_throwing_snowball = true
@@ -59,3 +63,7 @@ func _physics_process(delta: float) -> void:
 			_animated_sprite.play("Idle")
 
 	move_and_slide()
+
+
+func _on_timer_timeout() -> void:
+	can_Throw_Snowball = true
