@@ -19,6 +19,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		$JumpAudio.play()
 		
 	if Input.is_action_just_pressed("Interact"):
 		_animated_sprite.stop()
@@ -34,7 +35,7 @@ func _physics_process(delta: float) -> void:
 		print(get_tree().root)
 		print(instance.global_position)
 		
-		$AudioStreamPlayer.play()
+		$SnowballAudio.play()
  		
 
 		
