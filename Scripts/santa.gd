@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
 @onready var _animated_sprite = $AnimatedSprite2D
+@onready var _snowball_spawner = $"Snowball Spawner"
+var snowball = preload("res://Scenes/Snowball.tscn")
 
 
-const SPEED = 300.0
+const SPEED = 250.0
 const JUMP_VELOCITY = -400.0
 
 var is_throwing_snowball = false
@@ -21,6 +23,17 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("Interact"):
 		_animated_sprite.play("Throw")
 		is_throwing_snowball = true
+
+	  # Instantiate snowball in the main scene
+		var instance = snowball.instantiate()
+		instance.position = _snowball_spawner.global_position
+
+	  # Then add it as a child of the current node
+		get_tree().current_scene.add_child(instance)
+		print(get_tree().root)
+		print(instance.global_position)
+ 		
+
 		
 	if _animated_sprite.is_playing() == false:
 		is_throwing_snowball = false
