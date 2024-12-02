@@ -21,6 +21,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		
 	if Input.is_action_just_pressed("Interact"):
+		_animated_sprite.stop()
 		_animated_sprite.play("Throw")
 		is_throwing_snowball = true
 
@@ -32,6 +33,8 @@ func _physics_process(delta: float) -> void:
 		get_tree().current_scene.add_child(instance)
 		print(get_tree().root)
 		print(instance.global_position)
+		
+		$AudioStreamPlayer.play()
  		
 
 		
@@ -47,8 +50,10 @@ func _physics_process(delta: float) -> void:
 			_animated_sprite.play("Run")
 			if velocity.x > 0:
 				_animated_sprite.flip_h = false
+				GlobalSingleton.is_Santa_Facing_Left = true
 			else:
 				_animated_sprite.flip_h = true
+				GlobalSingleton.is_Santa_Facing_Left = false
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		if is_throwing_snowball == false:
