@@ -7,7 +7,7 @@ var snowball = preload("res://Scenes/Snowball.tscn")
 
 
 const SPEED = 250.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -450.0
 
 var is_throwing_snowball = false
 var can_Throw_Snowball = true

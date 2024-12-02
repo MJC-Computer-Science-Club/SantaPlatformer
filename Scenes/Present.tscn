@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://dk68ayt17cq5l"]
+
+[ext_resource type="Script" path="res://Scripts/Present.gd" id="1_aah7x"]
+[ext_resource type="Texture2D" uid="uid://c7mtu5n48ekf3" path="res://Assets/RedPresentIconOutline.png" id="1_iyo6d"]
+[ext_resource type="Script" path="res://Scripts/Present_Animation.gd" id="3_wddfw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c81ix"]
+
+[sub_resource type="Animation" id="Animation_35hoy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_bq4vy"]
+resource_name = "bouncing"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 0.533333, 0.966667),
+"transitions": PackedFloat32Array(0.535887, 1, 1.56917),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ky87w"]
+_data = {
+"RESET": SubResource("Animation_35hoy"),
+"bouncing": SubResource("Animation_bq4vy")
+}
+
+[node name="Present" type="Node2D"]
+script = ExtResource("1_aah7x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_iyo6d")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D" groups=["Player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D" groups=["Player"]]
+shape = SubResource("RectangleShape2D_c81ix")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_ky87w")
+}
+script = ExtResource("3_wddfw")
+
+[connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="AnimationPlayer" method="_on_animation_finished"]
