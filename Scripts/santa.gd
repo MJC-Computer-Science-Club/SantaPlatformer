@@ -47,8 +47,10 @@ func _physics_process(delta: float) -> void:
 			_animated_sprite.play("Run")
 			if velocity.x > 0:
 				_animated_sprite.flip_h = false
+				GlobalSingleton.is_Santa_Facing_Left = true
 			else:
 				_animated_sprite.flip_h = true
+				GlobalSingleton.is_Santa_Facing_Left = false
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		if is_throwing_snowball == false:
