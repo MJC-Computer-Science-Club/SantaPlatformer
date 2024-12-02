@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://8ocu838gr4dk" path="res://Assets/Santa/idle_sheet.png" id="2_mimeo"]
 [ext_resource type="Texture2D" uid="uid://c1i6juj1wawdq" path="res://Assets/Santa/run_sheet.png" id="3_itffc"]
 [ext_resource type="Texture2D" uid="uid://cvkqkcpt347e6" path="res://Assets/Santa/throw_sheet.png" id="4_mqkie"]
+[ext_resource type="AudioStream" uid="uid://dnqrovwvqqltx" path="res://Assets/Sound Effects/laserShoot.wav" id="5_48ffl"]
+[ext_resource type="AudioStream" uid="uid://ctm2jbsdwm250" path="res://Assets/Sound Effects/jump.wav" id="6_v5ja2"]
+[ext_resource type="AudioStream" uid="uid://bbltcpyl6o3aa" path="res://Assets/Sound Effects/hitHurt.wav" id="7_nnn5k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eqyfu"]
 atlas = ExtResource("2_mimeo")
@@ -52,18 +55,6 @@ region = Rect2(128, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_5v1oy"]
 atlas = ExtResource("3_itffc")
 region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jno6y"]
-atlas = ExtResource("4_mqkie")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rkb2l"]
-atlas = ExtResource("4_mqkie")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rd7vj"]
-atlas = ExtResource("4_mqkie")
-region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bpbv4"]
 atlas = ExtResource("4_mqkie")
@@ -127,15 +118,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jno6y")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rkb2l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rd7vj")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_bpbv4")
 }, {
 "duration": 1.0,
@@ -146,7 +128,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"Throw",
-"speed": 10.0
+"speed": 20.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bm1rs"]
@@ -176,3 +158,12 @@ shape = SubResource("CapsuleShape2D_bm1rs")
 
 [node name="Snowball Spawner" type="Node2D" parent="Santa"]
 position = Vector2(9, 0)
+
+[node name="SnowballAudio" type="AudioStreamPlayer" parent="Santa"]
+stream = ExtResource("5_48ffl")
+
+[node name="JumpAudio" type="AudioStreamPlayer" parent="Santa"]
+stream = ExtResource("6_v5ja2")
+
+[node name="HurtAudio" type="AudioStreamPlayer" parent="Santa"]
+stream = ExtResource("7_nnn5k")

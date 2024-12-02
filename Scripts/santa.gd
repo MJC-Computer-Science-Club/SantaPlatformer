@@ -19,8 +19,10 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		$JumpAudio.play()
 		
 	if Input.is_action_just_pressed("Interact"):
+		_animated_sprite.stop()
 		_animated_sprite.play("Throw")
 		is_throwing_snowball = true
 
@@ -30,8 +32,8 @@ func _physics_process(delta: float) -> void:
 
 	  # Then add it as a child of the current node
 		get_tree().current_scene.add_child(instance)
-		print(get_tree().root)
-		print(instance.global_position)
+		
+		$SnowballAudio.play()
  		
 
 		
