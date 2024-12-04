@@ -66,6 +66,8 @@ func _physics_process(delta: float) -> void:
 
 	if (GlobalSingleton.santa_Health != santa_Heath):
 		animation_Player.play("Damage")
+		$HurtAudio.play()
+		
 	
 	santa_Heath = GlobalSingleton.santa_Health
 	if santa_Heath <= 0:

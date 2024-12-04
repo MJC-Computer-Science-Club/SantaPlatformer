@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=21 format=4 uid="uid://2f3f53m3igex"]
 
 [ext_resource type="Texture2D" uid="uid://b8kcp1nvaj4ql" path="res://Assets/Sample.png" id="1_bmjgp"]
@@ -16,6 +17,7 @@
 [ext_resource type="Script" path="res://Scripts/PresentsLabel.gd" id="12_46nma"]
 [ext_resource type="Script" path="res://Scripts/HeathLabel.gd" id="13_6ksr8"]
 [ext_resource type="PackedScene" uid="uid://yo740ya5wr51" path="res://Scenes/killzone.tscn" id="15_4cu6a"]
+[ext_resource type="PackedScene" uid="uid://cto48qsufg2ja" path="res://Scenes/platform.tscn" id="16_dl440"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e5f0f"]
 texture = ExtResource("1_bmjgp")
@@ -789,9 +791,28 @@ stream = ExtResource("9_g5xsy")
 autoplay = true
 
 [node name="Killzone" parent="." instance=ExtResource("15_4cu6a")]
-position = Vector2(1231, 477)
+position = Vector2(1231, 550)
 
 [node name="Killzone2" parent="." instance=ExtResource("15_4cu6a")]
 position = Vector2(1599, 482)
+
+[node name="Platform" parent="." instance=ExtResource("16_dl440")]
+position = Vector2(1238, 409)
+height = 100
+dropping = false
+
+[node name="Platform2" parent="." instance=ExtResource("16_dl440")]
+position = Vector2(1591, 380)
+height = 150
+dropping = false
+
+[node name="Platform3" parent="." instance=ExtResource("16_dl440")]
+position = Vector2(244, 324)
+height = 100
+
+[node name="Platform4" parent="." instance=ExtResource("16_dl440")]
+position = Vector2(361, 324)
+height = 200
+dropping = false
 
 [connection signal="body_entered" from="Killzone" to="CanvasLayer/Label" method="_on_killzone_body_entered"]
