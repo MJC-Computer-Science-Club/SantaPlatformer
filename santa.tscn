@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://wudegylvy7lp"]
+
+[ext_resource type="PackedScene" uid="uid://dhkra2h2qrhi" path="res://Scenes/Santa.tscn" id="1_efwqr"]
+
+[node name="Santa" instance=ExtResource("1_efwqr")]
