@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://crmc1ulqjniiq"]
+
+[ext_resource type="Texture2D" uid="uid://fr0klwtg08yv" path="res://Assets/Santa/Santa_Sleigh.png" id="1_swkwc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0sbtp"]
+size = Vector2(18, 8)
+
+[node name="SantaSleigh" type="Sprite2D"]
+position = Vector2(982, 601)
+texture = ExtResource("1_swkwc")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_0sbtp")
