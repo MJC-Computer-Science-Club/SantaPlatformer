@@ -68,6 +68,9 @@ func _physics_process(delta: float) -> void:
 		animation_Player.play("Damage")
 		$HurtAudio.play()
 		
+	if (GlobalSingleton.is_Touching_Sleight and Input.is_action_just_pressed("Sleigh_Activate")):
+		print("TActivated Sleigh")
+		
 	
 	santa_Heath = GlobalSingleton.santa_Health
 	if santa_Heath <= 0:
