@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var _snowball_spawner = $"Snowball Spawner"
 @onready var snowball_Timer = $"Timer"
 @onready var animation_Player = $"AnimationPlayer"
+@onready var _camera2D = $"Camera2D"
 var snowball = preload("res://Scenes/Snowball.tscn")
 
 
@@ -70,6 +71,10 @@ func _physics_process(delta: float) -> void:
 		
 	if (GlobalSingleton.is_Touching_Sleight and Input.is_action_just_pressed("Sleigh_Activate")):
 		print("TActivated Sleigh")
+		_camera2D.zoom = Vector2(3, 3)
+		_camera2D.position = Vector2(100,-100)
+		GlobalSingleton.flying_Away = true
+		$"AnimatedSprite2D".visible = false
 		
 	
 	santa_Heath = GlobalSingleton.santa_Health
