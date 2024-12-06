@@ -740,6 +740,9 @@ position = Vector2(352, 377)
 [node name="EnemySnowman2" parent="SnowmanGroup" instance=ExtResource("3_de872")]
 position = Vector2(1844, 378)
 
+[node name="EnemySnowman3" parent="SnowmanGroup" instance=ExtResource("3_de872")]
+position = Vector2(3484, 120)
+
 [node name="Santa" parent="." instance=ExtResource("2_d7r66")]
 position = Vector2(150, 300)
 
@@ -813,64 +816,67 @@ script = ExtResource("13_6ksr8")
 stream = ExtResource("9_g5xsy")
 autoplay = true
 
-[node name="Killzone" parent="." instance=ExtResource("15_4cu6a")]
+[node name="KillZoneGroup" type="Node" parent="."]
+
+[node name="Killzone" parent="KillZoneGroup" instance=ExtResource("15_4cu6a")]
 position = Vector2(1231, 550)
 
-[node name="Killzone2" parent="." instance=ExtResource("15_4cu6a")]
+[node name="Killzone2" parent="KillZoneGroup" instance=ExtResource("15_4cu6a")]
 position = Vector2(1599, 482)
 
-[node name="Platform" parent="." instance=ExtResource("16_dl440")]
+[node name="MovingPlatformGroup" type="Node" parent="."]
+
+[node name="Platform" parent="MovingPlatformGroup" instance=ExtResource("16_dl440")]
 position = Vector2(1238, 409)
 height = 100
 dropping = false
 
-[node name="Platform2" parent="." instance=ExtResource("16_dl440")]
+[node name="Platform2" parent="MovingPlatformGroup" instance=ExtResource("16_dl440")]
 position = Vector2(1591, 380)
 height = 150
 dropping = false
 
-[node name="Platform3" parent="." instance=ExtResource("16_dl440")]
+[node name="Platform3" parent="MovingPlatformGroup" instance=ExtResource("16_dl440")]
 position = Vector2(244, 324)
 height = 100
 
-[node name="Platform4" parent="." instance=ExtResource("16_dl440")]
+[node name="Platform4" parent="MovingPlatformGroup" instance=ExtResource("16_dl440")]
 position = Vector2(361, 324)
 height = 200
 dropping = false
 
-[node name="Platform5" parent="." instance=ExtResource("16_dl440")]
+[node name="Platform5" parent="MovingPlatformGroup" instance=ExtResource("16_dl440")]
 position = Vector2(2657, 388)
 height = 300
 dropping = false
 
-[node name="Present" parent="." instance=ExtResource("3_l2onb")]
+[node name="PresentGroup2" type="Node" parent="."]
+
+[node name="Present" parent="PresentGroup2" instance=ExtResource("3_l2onb")]
 position = Vector2(2721, 295)
 
-[node name="Present2" parent="." instance=ExtResource("3_l2onb")]
+[node name="Present2" parent="PresentGroup2" instance=ExtResource("3_l2onb")]
 position = Vector2(2606, 215)
 
-[node name="Present3" parent="." instance=ExtResource("3_l2onb")]
+[node name="Present3" parent="PresentGroup2" instance=ExtResource("3_l2onb")]
 position = Vector2(2660, 153)
 
-[node name="EnemySnowman" parent="." instance=ExtResource("3_de872")]
-position = Vector2(3484, 120)
-
-[node name="Present4" parent="." instance=ExtResource("3_l2onb")]
+[node name="Present4" parent="PresentGroup2" instance=ExtResource("3_l2onb")]
 position = Vector2(3278, 132)
 
-[node name="Present5" parent="." instance=ExtResource("3_l2onb")]
+[node name="Present5" parent="PresentGroup2" instance=ExtResource("3_l2onb")]
 position = Vector2(3428, 131)
 
-[node name="Present6" parent="." instance=ExtResource("3_l2onb")]
+[node name="Present6" parent="PresentGroup2" instance=ExtResource("3_l2onb")]
 position = Vector2(3897, 260)
 
-[node name="Present7" parent="." instance=ExtResource("3_l2onb")]
+[node name="Present7" parent="PresentGroup2" instance=ExtResource("3_l2onb")]
 position = Vector2(4215, 161)
 
-[node name="Present8" parent="." instance=ExtResource("3_l2onb")]
+[node name="Present8" parent="PresentGroup2" instance=ExtResource("3_l2onb")]
 position = Vector2(4294, 122)
 
-[node name="Present9" parent="." instance=ExtResource("3_l2onb")]
+[node name="Present9" parent="PresentGroup2" instance=ExtResource("3_l2onb")]
 position = Vector2(4384, 76)
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -887,5 +893,5 @@ shape = SubResource("RectangleShape2D_fxk2c")
 position = Vector2(4504.25, 51.25)
 scale = Vector2(1.92188, 1.76563)
 
-[connection signal="body_entered" from="Killzone" to="CanvasLayer/Label" method="_on_killzone_body_entered"]
+[connection signal="body_entered" from="KillZoneGroup/Killzone" to="CanvasLayer/Label" method="_on_killzone_body_entered"]
 [connection signal="body_entered" from="Node2D/Area2D" to="Node2D" method="_on_area_2d_body_entered"]
