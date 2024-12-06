@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://2f3f53m3igex"]
+[gd_scene load_steps=26 format=4 uid="uid://2f3f53m3igex"]
 
 [ext_resource type="Texture2D" uid="uid://b8kcp1nvaj4ql" path="res://Assets/Sample.png" id="1_bmjgp"]
 [ext_resource type="PackedScene" uid="uid://dhkra2h2qrhi" path="res://Scenes/Santa.tscn" id="2_d7r66"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Scenes/Parallax Layers/parallax_layer.gd" id="6_bkjpo"]
 [ext_resource type="Texture2D" uid="uid://b45ketndupa6y" path="res://Assets/Background/Snow.png" id="6_citdb"]
 [ext_resource type="AudioStream" uid="uid://b6uaal7hj7nw5" path="res://Assets/Music/2. Jolly Beats.wav" id="9_g5xsy"]
+[ext_resource type="Texture2D" uid="uid://desm8olpth7rj" path="res://Assets/Background/Background_All.png" id="9_yx8ht"]
 [ext_resource type="Theme" uid="uid://fnvu8u46aamo" path="res://Assets/Themes/TextTheme.tres" id="11_levpi"]
 [ext_resource type="Theme" uid="uid://dy08xeomrysft" path="res://Assets/Themes/Hearts.tres" id="12_0pb1h"]
 [ext_resource type="Script" path="res://Scripts/PresentsLabel.gd" id="12_46nma"]
@@ -746,6 +747,11 @@ position = Vector2(150, 300)
 offset = Vector2(0, 175)
 scale = Vector2(0.5, 0.5)
 transform = Transform2D(0.5, 0, 0, 0.5, 0, 175)
+
+[node name="BackgroundAll" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(1855.5, 426.5)
+scale = Vector2(2.40417, 1.2662)
+texture = ExtResource("9_yx8ht")
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_mirroring = Vector2(1920, 0)
