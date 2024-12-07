@@ -846,6 +846,7 @@ script = ExtResource("18_32nxy")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_i0jiu")
+volume_db = 18.0
 autoplay = true
 
 [node name="KillZoneGroup" type="Node" parent="."]

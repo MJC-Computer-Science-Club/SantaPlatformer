@@ -80,6 +80,8 @@ func _physics_process(delta: float) -> void:
 	santa_Heath = GlobalSingleton.santa_Health
 	if santa_Heath <= 0:
 		queue_free()
+		get_tree().reload_current_scene()
+		GlobalSingleton.santa_Health = 3
 
 	move_and_slide()
 
