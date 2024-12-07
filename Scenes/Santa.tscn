@@ -171,9 +171,8 @@ frame_progress = 0.14524
 
 [node name="Camera2D" type="Camera2D" parent="Santa"]
 position = Vector2(91, 11)
-offset = Vector2(0, -50)
-zoom = Vector2(5, 5)
-limit_top = 50
+offset = Vector2(0, -25)
+zoom = Vector2(4, 4)
 limit_bottom = 2000
 position_smoothing_speed = 10.0
 

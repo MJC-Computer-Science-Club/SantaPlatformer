@@ -3,8 +3,9 @@ extends Area2D
 @onready var timer: Timer = $Timer
 
 func _on_body_entered(body: Node2D) -> void:
-	timer.start()
-	GlobalSingleton.santa_Health = 3
+	if body.is_in_group("Player"):
+		timer.start()
+		GlobalSingleton.santa_Health = 3
 
 
 func _on_timer_timeout() -> void:

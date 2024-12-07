@@ -14,6 +14,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if currentlyFlying == false && GlobalSingleton.flying_Away == true:
 		animationPlayer.play("Flying_Away")
+		currentlyFlying = false
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
@@ -28,3 +29,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		controller_Sprite2D.visible = false
 		GlobalSingleton.is_Touching_Sleight = false
 		print("Not Touching Sleigh")
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	GlobalSingleton.flew_Away = true
